@@ -2,7 +2,13 @@
 {% block content %}
 {% load static %}
 <!--Mask-->
-
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+  {% if messages %}
+  {% for message in messages %}
+    <script> alertify.{{message.tags }}('{{message}}');</script>
+  {% endfor %}
+  {% endif %}
+  
 <div id="intro" class="view">
 
   <!--Mask-->
@@ -77,33 +83,43 @@
                     
                     <div class="col-md-4 mb-1">
                         <a href="#" >
-                        <img style="width: 100px;" src="{% static 'img/aashray/try1.jpg' %}" alt="">
-                        <h4 class="my-4"> <b> Experience </b></h4>
+                        <img style="width: 100px;" src="{% static 'img/aashray/res-oxygen.jpg' %}" alt="">
+                        <h4 class="my-4"> <b> Oxygen </b></h4>
+                    </a>
+                    </div>
+                    <div class="col-md-4 mb-1">
+                        <a href="#" >
+                        <img style="width: 100px;" src="{% static 'img/aashray/res-bed.jpg' %}" alt="">
+                        <h4 class="my-4"> <b> Beds </b></h4>
+                    </a>
+                    </div>
+                    <div class="col-md-4 mb-1">
+                        <a href="#" >
+                        <img style="width: 100px;" src="{% static 'img/aashray/res-plasma.jpg' %}" alt="">
+                        <h4 class="my-4"> <b> Plasma </b></h4>
+                    </a>
+                    </div>
+                    <div class="col-md-4 mb-1">
+                        <a href="#" >
+                        <img style="width: 100px;" src="{% static 'img/aashray/res-med.jpg' %}" alt="">
+                        <h4 class="my-4"> <b> Medicines </b></h4>
+                    </a>
+                    </div>
+                    <div class="col-md-4 mb-1">
+                        <a href="#" >
+                        <img style="width: 100px;" src="{% static 'img/aashray/res-help.jpg' %}" alt="">
+                        <h4 class="my-4"> <b> Helpline </b></h4>
+                    </a>
+                    </div>
+                    <div class="col-md-4 mb-1">
+                        <a href="#" >
+                        <img style="width: 100px;" src="{% static 'img/aashray/res-others.jpg' %}" alt="">
+                        <h4 class="my-4"> <b> Others </b></h4>
                     </a>
                     </div>
                      
 
-                    <div class="col-md-4 mb-1">
-                        <img style="width: 100px;" src="{% static 'img/aashray/try1.jpg' %}" alt="">
-                        <h4 class="my-4">Experience</h4>
-                       
-                    </div>
-                    <div class="col-md-4 mb-1">
-                        <img style="width: 100px;" src="{% static 'img/aashray/try1.jpg' %}" alt="">
-                        <h4 class="my-4">Experience</h4>
-                        
-                    </div>
-                    <div class="col-md-4 mb-1">
-                        <img style="width: 100px;" src="{% static 'img/aashray/try1.jpg' %}" alt="">
-                        <h4 class="my-4">Experience</h4>
-                       
-                    </div>
-                    <div class="col-md-4 mb-1">
-                        <img style="width: 100px;" src="{% static 'img/aashray/try1.jpg' %}" alt="">
-                        <h4 class="my-4">Experience</h4>
-                       
-                    </div>
-                  
+                    
 
                 </div>
                 <!--Grid row-->
@@ -187,25 +203,26 @@
     
     <div class="col-lg-6 col-md-12">
       <!-- Form contact -->
-      <form class="p-3">
+      <form class="p-3" method="post" action="/">
+        {% csrf_token %} 
         <div class="md-form form-sm"> <i class="fa fa-user prefix grey-text"></i>
-          <input type="text" id="form3" class="form-control form-control-sm">
+          <input type="text"  name="name" id="form3" required class="form-control form-control-sm">
           <label for="form3">Your name</label>
         </div>
         <div class="md-form form-sm"> <i class="fa fa-envelope prefix grey-text"></i>
-          <input type="text" id="form2" class="form-control form-control-sm">
+          <input type="text" name="email" id="form2" required class="form-control form-control-sm" data-rule="email" data-msg="Please enter a valid email" onblur="this.style.borderColor= this.checkValidity() ? 'green' : 'red'" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
           <label for="form2">Your email</label>
         </div>
         <div class="md-form form-sm"> <i class="fa fa-tag prefix grey-text"></i>
-          <input type="text" id="form32" class="form-control form-control-sm">
+          <input type="text" name="subject" id="form32" required class="form-control form-control-sm">
           <label for="form34">Subject</label>
         </div>
         <div class="md-form form-sm"> <i class="fa fa-pencil prefix grey-text"></i>
-          <textarea type="text" id="form8" class="md-textarea form-control form-control-sm" rows="4"></textarea>
+          <textarea type="text" name="message" id="form8" required class="md-textarea form-control form-control-sm" rows="4"></textarea>
           <label for="form8">Your message</label>
         </div>
         <div class="text-center mt-4">
-          <button class="btn btn-primary">Send <i class="fa fa-paper-plane-o ml-1"></i></button>
+          <button type="submit" class="btn btn-primary">Send <i class="fa fa-paper-plane-o ml-1"></i></button>
         </div>
       </form>
       <!-- Form contact -->

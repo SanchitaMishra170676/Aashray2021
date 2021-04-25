@@ -1,17 +1,19 @@
 from django.contrib import admin
-from .models import Resource
+from .models import Contact
 from django.template.loader import render_to_string
 from import_export.admin import ImportExportModelAdmin
 from django.contrib import messages
 
-admin.site.register(Resource)
+# admin.site.register(Contact)
 
-# class ResourceAdmin(ImportExportModelAdmin):
-#     """ Admin Panel for  Resource Model """
+class ContactAdmin(ImportExportModelAdmin):
+    """ Admin Panel for  Queries Model """
 
-#     list_display = ('name',)
-#     search_fields = ('name',)
-#     list_display_links = ('name',)
-#     list_per_page= 20   
+    list_display = ('id','email','name','subject','answered','date')
+    search_fields = ('email','name','subject','message','id')
+    list_display_links = ('id','email','subject')
+    list_filter = ('answered',)
+    list_per_page= 60
+    ordering = ('date',)
 
-# admin.site.register(Resource, ResourceAdmin)
+admin.site.register(Contact,ContactAdmin)
