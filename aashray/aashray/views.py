@@ -16,4 +16,5 @@ def home(request):
         return redirect ('home')
     return render(request,'index.html')
 
-
+def donate_plasma(request):
+    return render(request,'donor.html')  
