@@ -37,7 +37,7 @@
         <div class="container">
 
             <!-- Navbar brand -->
-            <a class="navbar-brand" href="#">AAshray</a>
+            <a class="navbar-brand" href=" ">AAshray</a>
 
             <!-- Collapse button -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav"
@@ -56,9 +56,12 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="/oxygen/">Oxygen</a>
+                            <a class="dropdown-item" href="/hospital_beds/">Hospital Beds</a>
+                            <a class="dropdown-item" href="/plasma/">Plasma</a>
+                            <a class="dropdown-item" href="/medicines/">Medicines</a>
+                            <a class="dropdown-item" href="/helplines/">Helplines</a>
+                            <a class="dropdown-item" href="/others/">Others</a>
                         </div>
                     </li>
 
@@ -66,7 +69,7 @@
                         <a class="nav-link" href="/donor/">Donate Plasma</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" onclick="contact()">Contact</a>
                     </li>
                 </ul>
                 <!-- Links -->
@@ -125,7 +128,7 @@
         </footer>
     <footer class="page-footer unique-color-dark pt-0">
               © 2021 Copyright:
-              <a href="#"> AAshray Foundation </a>
+              <a href=" "> AAshray Foundation </a>
           </div>
           <!--/.Copyright-->
     
@@ -172,6 +175,12 @@
           var res = document.getElementById("our-resources");
           res.scrollIntoView();
       }
+
+      function contact(){
+          var con = document.getElementById("contact");
+          con.scrollIntoView();
+      }
+
       // Initialize maps
       google.maps.event.addDomListener(window, 'load', regular_map);
     </script>
