@@ -18,3 +18,33 @@ def home(request):
 
 def donate_plasma(request):
     return render(request,'donor.html')  
+
+def hospital_beds(request):
+    return render(request,'beds1.html')   
+
+def hospital_beds_data(request):
+    return render(request,'beds2.html') 
+
+def medicines(request):
+    return render(request,'medicines1.html') 
+
+def medicines_data(request):
+    return render(request,'medicines2.html') 
+
+def oxygen(request):
+    return render(request,'oxygen1.html')  
+
+def oxygen_data(request):
+    return render(request,'oxygen2.html')     
+
+def plasma(request):
+    return render(request,'plasma1.html')  
+
+def plasma_data(request):
+    return render(request,'plasma2.html') 
+
+def helplines(request):
+    return render(request,'helplines.html')  
+
+def others(request):
+    return render(request,'others.html')                           
