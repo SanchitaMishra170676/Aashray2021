@@ -5,3 +5,6 @@ from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 
 def home(request):
     return render(request,'index.html')
+
+def donate_plasma(request):
+    return render(request,'donor.html')    
