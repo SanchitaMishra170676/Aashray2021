@@ -329,6 +329,20 @@ body {
 		padding: 30px 20px 30px 20px;
 	    width: auto;
 	}
+	.form-v4-content .form-left .text-2 {
+		margin: 20px 0 25px;
+		font-size: medium;
+	}
+	.form-v4-content .form-left .text-1 {
+		font-size: medium;
+	}
+	.form-v4-content .form-detail label {
+		font-weight: 600;
+		font-size: 14px;
+		color: #666;
+		display: block;
+		margin-bottom: 8px;
+	}
 }
 @media screen and (max-width: 575px) {
 	.form-v4-content .form-detail .form-group {
@@ -342,5 +356,19 @@ body {
 	.form-v4-content .form-detail .form-group .form-row.form-row-1 {
 		width: 100%;
 		padding:  0;
+	}
+	.form-v4-content .form-left .text-2 {
+		margin: 20px 0 25px;
+		font-size: medium;
+	}
+	.form-v4-content .form-left .text-1 {
+		font-size: medium;
+	}
+	.form-v4-content .form-detail label {
+		font-weight: 600;
+		font-size: 14px;
+		color: #666;
+		display: block;
+		margin-bottom: 8px;
 	}
 }
