@@ -1,5 +1,5 @@
 {% extends 'resources_footer.html' %}
-{% block title %} Oxygen 
+{% block title %} {{val}}
     {% endblock %}
 {% block content %}
 {% load static %}
@@ -18,6 +18,6 @@
   </ul>
 </div>
 {% else %}
-<h2 class="p-4" align="center">Sorry we don't have any resource for Oxygen.</h2>
+<h2 class="p-4" align="center">Sorry we don't have any resource for {{val}}.</h2>
 {% endif %}
 {% endblock %}

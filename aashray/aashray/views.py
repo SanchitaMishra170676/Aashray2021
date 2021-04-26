@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.template.loader import render_to_string
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
-from .models import Contact, PlasmaDonorForm
+from .models import Contact, PlasmaDonorForm, Oxygen, Bed, Plasma, Medicine, Helpline, Other
 
 def home(request):
     if request.method =='POST':
@@ -43,26 +43,34 @@ def donate_plasma(request):
             return redirect ('home')
     return render(request,'donor.html')  
 
-def hospital_beds(request):
-    return render(request,'beds1.html')   
+def loc(request,the_slug):
+    if(the_slug == "Beds"):
+        locs = Bed.objects.order_by().values('city').distinct()
+        print(locs)
+        context={'locs':locs, 'val':'Beds'}
+    if(the_slug == "Oxygen"):
+        locs = Oxygen.objects.order_by().values('city').distinct()
+        print(locs)
+        context={'locs':locs, 'val':'Oxygen'}
+    if(the_slug == "Plasma"):
+        locs = Plasma.objects.order_by().values('city').distinct()
+        print(locs)
+        context={'locs':locs, 'val':'Plasma'}
+    if(the_slug == "Medicines"):
+        locs = Medicine.objects.order_by().values('city').distinct()
+        print(locs)
+        context={'locs':locs, 'val':'Medicines'}
+    return render(request,'locations.html', context)   
+    
 
 def hospital_beds_data(request):
-    return render(request,'beds2.html') 
-
-def medicines(request):
-    return render(request,'medicines1.html') 
+    return render(request,'beds2.html')  
 
 def medicines_data(request):
     return render(request,'medicines2.html') 
 
-def oxygen(request):
-    return render(request,'oxygen1.html')  
-
 def oxygen_data(request):
     return render(request,'oxygen2.html')     
-
-def plasma(request):
-    return render(request,'plasma1.html')  
 
 def plasma_data(request):
     return render(request,'plasma2.html') 
