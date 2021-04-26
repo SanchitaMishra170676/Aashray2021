@@ -17,6 +17,15 @@ def home(request):
     return render(request,'index.html')
 
 def donate_plasma(request):
+    if request.method =='POST':
+        Name = request.POST.get('name')  
+        Message = request.POST.get('message')
+        Subject = request.POST.get('subject') 
+        Email = request.POST.get('email')
+        contact = Contact(name=Name, message=Message, subject=Subject, email=Email)
+        contact.save()
+        messages.success(request,'Message received! Thank you for cntacting us.')
+        return redirect ('home')
     return render(request,'donor.html')  
 
 def hospital_beds(request):
