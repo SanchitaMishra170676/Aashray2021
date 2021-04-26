@@ -38,3 +38,22 @@ body {
   text-align: justify;
   font-size: large;
 }
+.pd{
+  padding-left:100px;
+  padding-right: 100px;
+}
+.pic{
+  height:300px;
+  border-radius: 50%;
+}
+.matter{
+  padding-left:100px;
+  padding-right: 100px;
+}
+.i1:hover{
+  height:350px;
+  border-radius: 20%;
+}
+.card {
+box-shadow: 0 6px 8px 4px rgba(0,0,0,0.2)
+}
