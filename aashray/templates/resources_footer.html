@@ -14,6 +14,7 @@
     <link href="{% static 'css/mdb.min.css' %}" rel="stylesheet">
     <!-- Your custom styles (optional) -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/resources.css' %}" rel="stylesheet">
       <!-- Alertify.js -->
 <!-- CSS -->
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
@@ -28,64 +29,13 @@
 </head>
 
 <body>
-  <!--Main Navigation-->
-  
-    <!--Navbar-->
-
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
-
-        <div class="container">
-
-            <!-- Navbar brand -->
-            <a class="navbar-brand" href=" ">AAshray</a>
-
-            <!-- Collapse button -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- Collapsible content -->
-            <div class="collapse navbar-collapse" id="basicExampleNav">
-
-                <!-- Links -->
-
-<ul class="navbar-nav mr-auto smooth-scroll">                 
-
-                    <!-- Dropdown -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
-                        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="/oxygen/">Oxygen</a>
-                            <a class="dropdown-item" href="/hospital_beds/">Hospital Beds</a>
-                            <a class="dropdown-item" href="/plasma/">Plasma</a>
-                            <a class="dropdown-item" href="/medicines/">Medicines</a>
-                            <a class="dropdown-item" href="/helplines/">Helplines</a>
-                            <a class="dropdown-item" href="/others/">Others</a>
-                        </div>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="/donor/">Donate Plasma</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" onclick="contact()">Contact</a>
-                    </li>
-                </ul>
-                <!-- Links -->
-
-                
-            </div>
-            <!-- Collapsible content -->
-            <!-- Social Icon  -->
-            
-        </div>
-    </nav>
-
-    {% block content %}
+<div class="res">
+  <h1>{% block title %}
+    {% endblock %}</h1>
+</div>
+{% block content %}
     {% endblock %}
-
-    <footer class="page-footer font-small blue">
+<footer class="page-footer font-small blue">
 
         <!-- Social buttons -->
         <div class="primary-color">
@@ -133,8 +83,10 @@
           <!--/.Copyright-->
     
       </footer>
+      {% comment %} </div> {% endcomment %}
       <!--/.Footer-->
       <!--Footer-->
+      </body>
         <!-- JQuery -->
         <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
         <!-- Bootstrap tooltips -->
@@ -187,4 +139,3 @@
     </body>
     
     </html>
-    

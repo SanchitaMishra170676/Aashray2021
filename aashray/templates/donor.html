@@ -25,7 +25,14 @@
 			<div class="form-left">
 				<h2>INFORMATION</h2>
 				<p class="text-1">Thank you for your help!</p>
-				<p class="text-2"><span>Donor Eligibility:</span> Have recovered 14 days ago.<br>
+				<p class="text-2"><span >Donor Eligibility:</span> <br>
+				1. Tested COVID +ve in last 120 days. <br>
+				2. Women must not have conceived a child. <br>
+				3. Should not have received plasma themselves. <br>
+				4. Should be between 18-65 years. <br>
+				5. Should not have Diabetes, Thyroid or High Blood Pressure. <br>
+				6. Should weight atleast 55 kgs. <br>
+				7. Should not have had the COVID Vaccine.<br>
 Note:  Once you have donated, you need to wait for another 14 days to donate again.</p>
 			</div>
 			<form class="form-detail" action="#" method="post" id="myform">
@@ -33,21 +40,21 @@ Note:  Once you have donated, you need to wait for another 14 days to donate aga
 				<div class="form-group">
 					<div class="form-row form-row-1">
 						<label for="first_name">Name</label>
-						<input type="text" name="first_name" id="first_name" class="input-text">
+						<input type="text" name="name" required id="first_name" class="input-text">
 					</div>
 					<div class="form-row form-row-1">
 						<label for="last_name">Age</label>
-						<input type="text" name="last_name" id="last_name" class="input-text">
+						<input type="text" name="age" required id="last_name" class="input-text">
 					</div>
 				</div>
 				<div class="form-row">
 					<label for="your_email">Email</label>
-					<input type="text" name="your_email" id="your_email" class="input-text" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
+					<input type="text" name="email" id="your_email" class="input-text" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
 				</div>
 				<div class="form-group">
 				<div class="form-row form-row-1">
 					<label for="contact">Contact No.</label>
-					<input type="text" name="contact" id="contact" class="input-text" required>
+					<input type="text" name="contact" id="contact" class="input-text" required onblur="this.style.borderColor= this.checkValidity() ? 'green' : 'red'" name="phone" pattern="[6-9][0-9]{9}$">
 				</div>
 				<div class="form-row form-row-1">
 					<label for="blood_grp">Blood Group</label>
@@ -73,11 +80,11 @@ Note:  Once you have donated, you need to wait for another 14 days to donate aga
 				</div>
 				<div class="form-row">
 					<label for="rec_date">Date of recovery</label>
-					<input type="date" name="rec_date" id="rec_date" class="input-text" required >
+					<input type="date" name="date" id="rec_date" class="input-text" required >
 				</div>
 				<div class="form-row">
 					<label for="don_before">Have you donated before? If yes, when?</label>
-					<input type="text" name="don_before" id="don_before" class="input-text" required >
+					<input type="text" name="prevDonation" id="don_before" class="input-text" required >
 				</div>
 				<div class="form-row">
 					<label for="antibodies">Have you gotten tested for antibodies?</label>
@@ -85,9 +92,9 @@ Note:  Once you have donated, you need to wait for another 14 days to donate aga
 				</div>
 				<div class="form-row">
 					<label for="issues">Do you have any chronic medical issues, or anything else you would like us to note.</label>
-					<input type="text" name="issues" id="issues" class="input-text" >
+					<input type="text" name="medIssues" id="issues" class="input-text" >
 				</div>
-				<div class="form-row-last">
+				<div class="form-row">
 					<input type="submit" name="register" class="register" value="Register">
 				</div>
 			</form>
