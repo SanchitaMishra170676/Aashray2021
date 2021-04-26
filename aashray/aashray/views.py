@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.template.loader import render_to_string
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
-from .models import Contact
+from .models import Contact, PlasmaDonorForm
 
 def home(request):
     if request.method =='POST':
@@ -17,6 +17,30 @@ def home(request):
     return render(request,'index.html')
 
 def donate_plasma(request):
+    if request.method =='POST':
+        try:
+            Name = request.POST.get('name')  
+            Age = request.POST.get('age')
+            Email = request.POST.get('email')
+            Contact = request.POST.get('contact')
+            BloodGroup = request.POST.get('bloodGroup')
+            Address = request.POST.get('address')
+            City = request.POST.get('city')
+            Date = request.POST.get('date')
+            PrevDonation = request.POST.get('prevDonation')
+            Antibodies = request.POST.get('antibodies')
+            MedIssues = request.POST.get('medIssues')
+            cntc = PlasmaDonorForm.objects.filter(contact = Contact)
+            if (len(cntc)):
+                messages.error(request,"This entry already exists.")
+                return redirect ('donate_plasma')
+            plasmaDonorForm = PlasmaDonorForm(name=Name, age= Age, email=Email, contact= Contact, bloodGroup = BloodGroup, address= Address, city=City, date= Date, prevDonation = PrevDonation, antibodies = Antibodies, medIssues = MedIssues)
+            plasmaDonorForm.save()
+            messages.success(request,'Details Received! We will contact you soon.')
+            return redirect ('home')
+        except:
+            messages.error(request,"Error Occured! Kindly contact the team.")
+            return redirect ('home')
     return render(request,'donor.html')  
 
 def hospital_beds(request):

@@ -51,8 +51,7 @@ body {
   padding-right: 100px;
 }
 .i1:hover{
-  height:350px;
-  border-radius: 20%;
+  border-radius: 10%;
 }
 .card {
 box-shadow: 0 6px 8px 4px rgba(0,0,0,0.2)
