@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.template.loader import render_to_string
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
-from .models import Contact, PlasmaDonorForm
+from .models import Contact, PlasmaDonorForm, Oxygen, Bed, Plasma, Medicine, Helpline, Other
 
 def home(request):
     if request.method =='POST':
@@ -12,7 +12,7 @@ def home(request):
         Email = request.POST.get('email')
         contact = Contact(name=Name, message=Message, subject=Subject, email=Email)
         contact.save()
-        messages.success(request,'Message received! Thank you for cntacting us.')
+        messages.success(request,'Message received! Thank you for contacting us.')
         return redirect ('home')
     return render(request,'index.html')
 
@@ -43,32 +43,57 @@ def donate_plasma(request):
             return redirect ('home')
     return render(request,'donor.html')  
 
-def hospital_beds(request):
-    return render(request,'beds1.html')   
+def loc(request,the_slug):
+    if(the_slug == "Beds"):
+        locs = Bed.objects.order_by().values('city').distinct()
+        print(locs)
+        context={'locs':locs, 'val':'Beds'}
+    if(the_slug == "Oxygen"):
+        locs = Oxygen.objects.order_by().values('city').distinct()
+        print(locs)
+        context={'locs':locs, 'val':'Oxygen'}
+    if(the_slug == "Plasma"):
+        locs = Plasma.objects.order_by().values('city').distinct()
+        print(locs)
+        context={'locs':locs, 'val':'Plasma'}
+    if(the_slug == "Medicines"):
+        locs = Medicine.objects.order_by().values('city').distinct()
+        print(locs)
+        context={'locs':locs, 'val':'Medicines'}
+    return render(request,'locations.html', context)   
+    
 
-def hospital_beds_data(request):
-    return render(request,'beds2.html') 
+def oxygen(request, the_slug):
+    oxygens = Oxygen.objects.order_by('-currDate').filter(city=the_slug, verified= True)
+    notoxygens = Oxygen.objects.order_by('-currDate').filter(city=the_slug, verified= False)
+    context= {'oxygens':oxygens, 'notoxygens': notoxygens, 'city': the_slug}
+    return render(request,'oxygen.html', context)      
 
-def medicines(request):
-    return render(request,'medicines1.html') 
+def bed(request, the_slug):
+    beds = Bed.objects.order_by('-currDate').filter(city=the_slug, verified= True)
+    notbeds = Bed.objects.order_by('-currDate').filter(city=the_slug, verified= False)
+    context= {'beds':beds, 'notbeds': notbeds, 'city': the_slug}
+    return render(request,'bed.html', context)  
 
-def medicines_data(request):
-    return render(request,'medicines2.html') 
+def plasma(request, the_slug):
+    plasmas = Plasma.objects.order_by('-currDate').filter(city=the_slug, verified= True)
+    notplasmas = Plasma.objects.order_by('-currDate').filter(city=the_slug, verified= False)
+    context= {'plasmas':plasmas, 'notplasmas': notplasmas, 'city': the_slug}
+    return render(request,'plasma.html', context)  
 
-def oxygen(request):
-    return render(request,'oxygen1.html')  
-
-def oxygen_data(request):
-    return render(request,'oxygen2.html')     
-
-def plasma(request):
-    return render(request,'plasma1.html')  
-
-def plasma_data(request):
-    return render(request,'plasma2.html') 
+def medicine(request, the_slug):
+    medicines = Medicine.objects.order_by('-currDate').filter(city=the_slug, verified= True)
+    notmedicines = Medicine.objects.order_by('-currDate').filter(city=the_slug, verified= False)
+    context= {'medicines':medicines, 'notmedicines': notmedicines, 'city': the_slug}
+    return render(request,'medicine.html', context)  
 
 def helplines(request):
-    return render(request,'helplines.html')  
+    helplines = Helpline.objects.order_by('state').filter()
+    context={'helplines' : helplines}
+    return render(request,'helplines.html', context)  
 
 def others(request):
-    return render(request,'others.html')                           
+    ots = Other.objects.order_by('-currDate').filter(active=True)[:7]
+    context = {'ots':ots}
+    print(context)
+    return render(request,'others.html', context)                           
