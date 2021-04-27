@@ -122,6 +122,7 @@ class Other(models.Model):
     content = models.TextField() 
     image = models.ImageField(upload_to="media/Others/",default="")
     currDate = models.DateTimeField(auto_now_add=True)
+    active = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
