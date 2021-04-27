@@ -30,4 +30,4 @@ urlpatterns = [
     path('resources/Plasma/<slug:the_slug>/',views.plasma, name='plasma'),
     path('resources/Medicines/<slug:the_slug>/',views.medicine, name='medicine'),
     path('helplines/',views.helplines, name='helplines'),
-] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT) 
