@@ -110,7 +110,7 @@ class Medicine(models.Model):
 
 class Helpline(models.Model):
     state = models.CharField(max_length=100)
-    contact = models.CharField(max_length=13,unique=True)
+    contact = models.CharField(max_length=13)
     currDate = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
