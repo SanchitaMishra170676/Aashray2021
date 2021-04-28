@@ -106,7 +106,7 @@
                                        <div class="card-header" role="tab" id="first" style="background-color: white">
                                        <h3 class="mb-0" style="color:black;">
                                            <a style="color: black; font-size: 20px;"class="collapsed" data-toggle="collapse" data-target="#{{oxygen.contact}}">
-                                           {{oxygen.name}} <br> <h6>Contact: {{oxygen.contact}}</h6> 
+                                           {{oxygen.name}} <br> <h6>Contact: <a href="tel:+{{oxygen.contact}}">{{oxygen.contact}}</a> </h6> 
                                            </a>
                                        </h3>
                                    </div>
@@ -136,12 +136,12 @@
                           <div class="card">
                                    <div class="card-header" role="tab" id="first" style="background-color: white">
                                    <h3 class="mb-0" style="color:black;">
-                                       <a style="color: black; font-size: 20px;"class="collapsed" data-toggle="collapse" data-target="#{{notbed.contact}}">
-                                        {{notoxygen.name}} <br> <h6>Contact: {{notoxygen.contact}}</h6> 
+                                       <a style="color: black; font-size: 20px;"class="collapsed" data-toggle="collapse" data-target="#{{notoxygen.contact}}">
+                                        {{notoxygen.name}} <br> <h6>Contact: <a href="tel:+{{notoxygen.contact}}">{{notoxygen.contact}}</a> </h6> 
                                        </a>
                                    </h3>
                                </div>
-                               <div class="collapse" id="{{notbed.contact}}" data-parent="#accordion">
+                               <div class="collapse" id="{{notoxygen.contact}}" data-parent="#accordion">
                                    <div class="card-body">
                                        <p class="col-12">
                                         {{notoxygen.email}} <br>
