@@ -113,9 +113,15 @@
                                    <div class="collapse" id="{{plasma.contact}}" data-parent="#accordion">
                                        <div class="card-body">
                                            <p class="col-12">
+                                              {% if plasma.email %}
                                               {{plasma.email}} <br>
+                                              {% endif %}
+                                              {% if plasma.address %}
                                               {{plasma.address}} <br>
+                                              {% endif %}
+                                              {% if plasma.VerificationTime %}
                                               Verified at: {{plasma.VerificationTime}}
+                                              {% endif %}
                                            </p>
                                        </div>
                                    </div>
@@ -144,9 +150,15 @@
                                <div class="collapse" id="{{notplasma.contact}}" data-parent="#accordion">
                                    <div class="card-body">
                                        <p class="col-12">
+                                        {% if notplasma.email %}
                                         {{notplasma.email}} <br>
+                                        {% endif %}
+                                        {% if notplasma.address %}
                                         {{notplasma.address}} <br>
+                                        {% endif %}
+                                        {% if notplasma.VerificationTime %}
                                         Verified at: {{notplasma.VerificationTime}} but unable to contact.
+                                        {% endif %}
                                        </p>
                                  </div>
                                </div>

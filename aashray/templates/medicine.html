@@ -113,9 +113,15 @@
                                    <div class="collapse" id="{{medicine.contact}}" data-parent="#accordion">
                                        <div class="card-body">
                                            <p class="col-12">
+                                              {% if medicine.email  %}
                                               {{medicine.email}} <br>
+                                              {% endif %}
+                                              {% if medicine.address %}
                                               {{medicine.address}} <br>
+                                              {% endif %}
+                                              {% if medicine.verificationTime %}
                                               Verified at: {{medicine.verificationTime}}
+                                              {% endif %}
                                            </p>
                                        </div>
                                    </div>
@@ -144,9 +150,15 @@
                                <div class="collapse" id="{{notmedicine.contact}}" data-parent="#accordion">
                                    <div class="card-body">
                                        <h6 class="col-12">
+                                        {% if notmedicine.email %}
                                         {{notmedicine.email}} <br>
+                                        {% endif %}
+                                        {% if notmedicine.address %}
                                         {{notmedicine.address}} <br>
+                                        {% endif %}
+                                        {% if notmedicine.verificationTime %}
                                         Verified at: {{notmedicine.verificationTime}} but unable to contact.
+                                        {% endif %}
                                        </p>
                                  </div>
                                </div>
