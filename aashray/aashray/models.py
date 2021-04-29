@@ -70,6 +70,7 @@ class Bed(models.Model):
 
 class Plasma(models.Model):
     bloodGroup_choices = (
+        ('All', 'All'),
         ('A+','A+'),
         ('B+','B+'),
         ('AB+', 'AB+'),
